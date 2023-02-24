@@ -3,7 +3,9 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  gap: 2px;
+
+  margin-top: 2rem;
+  gap: 16px;
 
   h1 {
     text-transform: uppercase;
@@ -19,10 +21,9 @@
   background-color: hsl(357deg 75% 45%);
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  border: var(--border);
 
   width: 400px;
-  overflow: hidden;
 
   &.left {
     border-top-left-radius: 16px;
@@ -45,5 +46,10 @@
 .status-bar {
   background-color: hsl(357deg 86% 55%);
   height: 100px;
-  padding: 16px;
+  padding: 12px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border: var(--border);
+
+  clip-path: url(#pokedexCutout);
 }
