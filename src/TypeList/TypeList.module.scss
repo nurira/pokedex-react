@@ -1,0 +1,12 @@
+.wrapper {
+  list-style-type: none;
+  display: flex;
+  text-transform: uppercase;
+
+  li {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 2px 12px;
+    background-color: var(--color);
+  }
+}

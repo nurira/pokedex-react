@@ -1,0 +1,46 @@
+.bar-graph {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 24px;
+  width: 300px;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.bar {
+  --bar-color: orangered;
+  --bar-height: 2rem;
+  --bar-width: 0px;
+  height: var(--bar-height);
+  width: var(--bar-width);
+  background-color: var(--bar-color);
+
+  border: 1px solid black;
+  position: relative;
+}
+
+.label {
+  line-height: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.value {
+  position: absolute;
+  transform: translate(100%, 50%);
+  right: 0;
+  top: 0;
+}
+
+.hex-graph {
+  border: 1px solid black;
+
+  .background {
+    width: 200px;
+    height: 200px;
+    background-color: teal;
+    margin: 0 auto;
+  }
+}
