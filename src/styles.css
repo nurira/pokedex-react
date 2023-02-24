@@ -1,0 +1,8 @@
+:root {
+  --border: 2px solid black;
+  --red-1: hsl(357deg 75% 38%);
+  --red-2: hsl(357deg 75% 45%);
+  --red-3: hsl(357deg 86% 55%);
+  --red-4: hsl(357deg 86% 65%);
+  --red-5: hsl(357deg 92% 58%);
+}
