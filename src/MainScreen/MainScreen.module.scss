@@ -1,0 +1,26 @@
+.bezel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 250px;
+  width: 300px;
+  margin: 0 auto;
+  background-color: white;
+
+  border-radius: 1rem;
+  border: 2px solid black;
+
+  color: white;
+
+  position: relative;
+}
+
+.screen {
+  height: 200px;
+  width: 200px;
+  padding: 8px;
+
+  background-color: #1a1a1a;
+  border: 2px solid black;
+}
