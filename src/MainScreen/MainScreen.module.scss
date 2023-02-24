@@ -1,26 +1,28 @@
-.bezel {
+.wrapper {
+  --bezel-width: 50px;
+  --height: 250px;
+  --width: 300px;
+  --screen-height: calc(var(--height) - var(var(--bezel-width)));
+  --screen-width: calc(var(--width) - var(var(--bezel-width)));
+
+  height: var(--height);
+  width: var(--width);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  height: 250px;
-  width: 300px;
-  margin: 0 auto;
   background-color: white;
+  margin: 0 auto;
+  border: var(--border);
 
   border-radius: 1rem;
-  border: 2px solid black;
-
-  color: white;
-
-  position: relative;
 }
 
 .screen {
-  height: 200px;
-  width: 200px;
-  padding: 8px;
+  height: var(--screen-height);
+  width: var(--screen-width);
 
-  background-color: #1a1a1a;
-  border: 2px solid black;
+  padding: 8px;
+  border-radius: 0.5rem;
+  background-color: yellowgreen;
+  border: 2px solid hsl(0deg 0% 0% / 0.3);
 }
