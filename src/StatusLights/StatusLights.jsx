@@ -22,7 +22,7 @@ function Light({
 export default function StatusLights() {
   return (
     <div className={styles["wrapper"]}>
-      <Light size="64px" color="lightblue" />
+      <Light size="72px" color="lightblue" />
       <Light size="36px" color="red" />
       <Light size="36px" color="yellow" />
       <Light size="36px" color="green" />

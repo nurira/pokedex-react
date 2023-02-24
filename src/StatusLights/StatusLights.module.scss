@@ -1,12 +1,16 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 8px;
 }
 
 .status-light {
+  &:not(:first-child) {
+    margin-top: 3px;
+  }
+
   --color: hsl(0deg 0% 0% / 1);
   --size: 48px;
   --bezel-size: 12px;
@@ -15,14 +19,14 @@
   width: var(--size);
   border-radius: 50%;
   background-color: var(--bezel-color);
-  border: 1px solid black;
+  border: var(--border);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:after {
-    border: 1px solid black;
+    border: var(--border);
     content: "";
     height: calc(var(--size) - var(--bezel-size));
     width: calc(var(--size) - var(--bezel-size));
