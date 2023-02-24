@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.status-light {
+  --color: hsl(0deg 0% 0% / 1);
+  --size: 48px;
+  --bezel-size: 12px;
+  --bezel-color: hsl(0deg 0% 92% / 1);
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  background-color: var(--bezel-color);
+  border: 1px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    border: 1px solid black;
+    content: "";
+    height: calc(var(--size) - var(--bezel-size));
+    width: calc(var(--size) - var(--bezel-size));
+    background-color: var(--color);
+    border-radius: 50%;
+  }
+}
