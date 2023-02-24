@@ -33,8 +33,6 @@ function App() {
     }
   }
 
-  if (status === "loading") return <Spinner />;
-
   return (
     <div className={styles["wrapper"]}>
       <SearchForm

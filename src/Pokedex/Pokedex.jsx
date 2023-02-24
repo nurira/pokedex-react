@@ -1,8 +1,10 @@
+import StatusLights from "../StatusLights";
 import StatGraph from "../StatGraph";
 import EvolutionGraph from "../EvolutionGraph";
 import MoveList from "../MoveList";
 import TypeList from "../TypeList/TypeList";
 import AbilitiesList from "../AbilitiesList";
+import MainScreen from "../MainScreen";
 
 import pickRandom from "../util/pickRandom";
 
@@ -33,31 +35,39 @@ function Pokedex({ pokemonData, species, evolutions }) {
 
   return (
     <div className={styles["wrapper"]}>
-      <div className={styles["section"]}>
-        <div>
-          <h1>
-            {id} {name}
-          </h1>
+      <div className={`${styles["panel"]} ${styles["left"]}`}>
+        <div className={styles["status-bar"]}>
+          <StatusLights />
+        </div>
+        <div className={styles["content"]}>
+          <MainScreen>
+            <div>
+              <h1>
+                {id} {name}
+              </h1>
+              <div>
+                <TypeList types={types} />
+              </div>
+            </div>
+            <div>
+              <img src={front_default} alt="" />
+            </div>
+          </MainScreen>
+
           <div>
-            <TypeList types={types} />
+            <p>{pickRandom(flavor_texts).flavor_text}</p>
+          </div>
+          <div>
+            EVOLUTION GRAPH
+            <EvolutionGraph evolutions={evolutions} />
+          </div>
+          <div>
+            ABILITIES
+            <AbilitiesList abilities={abilities} />
           </div>
         </div>
-        <div>
-          <img src={front_default} alt="" />
-        </div>
-        <div>
-          <p>{pickRandom(flavor_texts).flavor_text}</p>
-        </div>
-        <div>
-          EVOLUTION GRAPH
-          <EvolutionGraph evolutions={evolutions} />
-        </div>
-        <div>
-          ABILITIES
-          <AbilitiesList abilities={abilities} />
-        </div>
       </div>
-      <div className={styles["section"]}>
+      <div className={`${styles["panel"]} ${styles["right"]}`}>
         <div>
           <p>Base Experience: {base_experience}</p>
           <p>Height: {height}</p>
