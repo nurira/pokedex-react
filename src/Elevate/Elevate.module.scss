@@ -4,9 +4,7 @@
     drop-shadow(-3px 3px 0px var(--color))
     drop-shadow(-2px 2px 0px var(--border-color));
 
-  // shadow creates 8px under and to the left
-  // shift up and right by 8
   position: relative;
-  bottom: 8px;
+  bottom: 10px;
   left: 8px;
 }
