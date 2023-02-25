@@ -1,20 +1,21 @@
 .wrapper {
   --bezel-width: 50px;
   --height: 250px;
-  --width: 300px;
-  --screen-height: calc(var(--height) - var(var(--bezel-width)));
-  --screen-width: calc(var(--width) - var(var(--bezel-width)));
+  --width: 325px;
+  --screen-height: 200px;
+  --screen-width: 200px;
 
   height: var(--height);
   width: var(--width);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: white;
   margin: 0 auto;
   border: var(--border);
 
-  border-radius: 1rem;
+  border-radius: 8px;
+  position: relative;
 }
 
 .screen {
@@ -23,6 +24,54 @@
 
   padding: 8px;
   border-radius: 0.5rem;
-  background-color: yellowgreen;
-  border: 2px solid hsl(0deg 0% 0% / 0.3);
+  background-color: var(--bgColor);
+  border-left: 2px black solid;
+  border-bottom: 2px black solid;
+  border-top: 3px hsl(0deg 0% 0% / 0.6) solid;
+  border-right: 3px hsl(0deg 0% 0% / 0.6) solid;
+}
+
+.speaker-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  right: 9px;
+  top: 48px;
+
+  .slot {
+    height: 5px;
+    width: 42px;
+    background-color: hsl(0deg 0% 50%);
+    border: 2px solid black;
+    border-radius: 100px;
+  }
+}
+
+.top-buttons {
+  position: absolute;
+  display: flex;
+  top: 6px;
+  gap: 24px;
+
+  .button {
+    background-color: var(--red-dark);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: var(--border);
+  }
+}
+
+.on-off-button {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+
+  background-color: var(--red-dark);
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+
+  border: 2px solid black;
 }
