@@ -53,25 +53,10 @@
   display: flex;
   top: 6px;
   gap: 24px;
-
-  .button {
-    background-color: var(--red-dark);
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    border: var(--border);
-  }
 }
 
-.on-off-button {
+.left-buttons {
   position: absolute;
   left: 24px;
   bottom: 24px;
-
-  background-color: var(--red-dark);
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-
-  border: 2px solid black;
 }

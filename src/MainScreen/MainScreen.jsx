@@ -1,4 +1,5 @@
 import Elevate from "../Elevate";
+import Button from "../Button";
 
 import useToggle from "../hooks/useToggle";
 
@@ -10,7 +11,9 @@ export default function MainScreen({ children }) {
   return (
     <Elevate color="white">
       <div className={styles["wrapper"]}>
-        <div className={styles["on-off-button"]} onClick={toggleScreen}></div>
+        <div className={styles["left-buttons"]}>
+          <Button size={24} color="var(--red-dark)" onClick={toggleScreen} />
+        </div>
 
         <div
           className={styles["screen"]}
@@ -27,8 +30,8 @@ export default function MainScreen({ children }) {
           <div className={styles["slot"]}></div>
         </div>
         <div className={styles["top-buttons"]}>
-          <div className={styles["button"]}></div>
-          <div className={styles["button"]}></div>
+          <Button size={8} color="var(--red-dark)" />
+          <Button size={8} color="var(--red-dark)" />
         </div>
       </div>
     </Elevate>
