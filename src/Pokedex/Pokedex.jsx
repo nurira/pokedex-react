@@ -36,22 +36,20 @@ function Pokedex({ pokemonData, species, evolutions }) {
 
   return (
     <div className={styles["wrapper"]}>
-      <Elevate color="darkred">
+      <Elevate color="var(--red-darker)">
         <div className={`${styles["panel"]} ${styles["left"]}`}>
-          <Elevate color="darkred">
+          <Elevate color="var(--red-darker)">
             <div className={styles["status-bar"]}>
               <StatusLights />
             </div>
           </Elevate>
           <div className={styles["content"]}>
             <MainScreen>
+              <h1>
+                {id} {name}
+              </h1>
               <div>
-                <h1>
-                  {id} {name}
-                </h1>
-                <div>
-                  <TypeList types={types} />
-                </div>
+                <TypeList types={types} />
               </div>
               <div>
                 <img src={front_default} alt="" />

@@ -18,12 +18,11 @@
 }
 
 .panel {
-  background-color: hsl(357deg 75% 45%);
+  width: 400px;
+  background-color: var(--red);
   display: flex;
   flex-direction: column;
   border: var(--border);
-
-  width: 400px;
 
   &.left {
     border-top-left-radius: 16px;
@@ -44,11 +43,10 @@
 }
 
 .status-bar {
-  background-color: hsl(357deg 86% 55%);
+  background-color: var(--red);
   height: 100px;
   padding: 12px;
   border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
   border: var(--border);
 
   clip-path: url(#pokedexCutout);
