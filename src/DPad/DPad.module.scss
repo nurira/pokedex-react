@@ -1,0 +1,31 @@
+.d-pad {
+  width: fit-content;
+  display: grid;
+  grid-template-areas:
+    ". U ."
+    "L . R"
+    ". D .";
+
+  .button {
+    padding: 12px;
+    border-radius: 50%;
+    border: var(--border);
+    background-color: hsl(0, 0%, 14%);
+  }
+
+  .up {
+    grid-area: U;
+  }
+
+  .down {
+    grid-area: D;
+  }
+
+  .left {
+    grid-area: L;
+  }
+
+  .right {
+    grid-area: R;
+  }
+}
