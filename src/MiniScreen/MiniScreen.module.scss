@@ -1,0 +1,21 @@
+.mini-screen-wrapper {
+  .mini-screen {
+    height: 100px;
+    width: 200px;
+    background-color: hsl(0, 0%, 14%);
+    border: var(--border);
+
+    padding: 6px;
+    color: white;
+    overflow: auto;
+    font-size: 11px;
+    font-family: monospace;
+    text-transform: uppercase;
+  }
+
+  .mini-screen-controls {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 8px;
+  }
+}
