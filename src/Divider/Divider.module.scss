@@ -1,0 +1,29 @@
+.wrapper {
+  position: relative;
+  width: 48px;
+
+  z-index: 1;
+  margin-right: -10px;
+}
+
+.bar {
+  position: absolute;
+  top: -26px;
+  width: 48px;
+  background-color: var(--red);
+  border: var(--border);
+  height: calc(100% + 16px);
+
+  border-top-right-radius: 32px 16px;
+  border-top-left-radius: 32px 16px;
+}
+
+.circle {
+  height: 24px;
+  width: 48px;
+  background-color: var(--red-darker);
+  border: var(--border);
+  position: absolute;
+  bottom: -4px;
+  border-radius: 50%;
+}
