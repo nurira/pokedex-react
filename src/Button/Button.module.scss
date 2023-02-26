@@ -1,6 +1,17 @@
-.wrapper {
+.circle-button {
+  height: var(--size);
+  width: var(--size);
+  background-color: var(--color);
+
   border: var(--border);
   border-radius: 50%;
-  padding: calc(var(--size) / 2);
+}
+
+.rect-button {
+  height: var(--height);
+  width: var(--width);
   background-color: var(--color);
+
+  border: var(--border);
+  border-radius: 4px;
 }
