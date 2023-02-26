@@ -5,7 +5,12 @@ import MoveList from "../MoveList";
 import TypeList from "../TypeList/TypeList";
 import AbilitiesList from "../AbilitiesList";
 import MainScreen from "../MainScreen";
+import DPad from "../DPad";
+import MiniScreen from "../MiniScreen";
+import Divider from "../Divider";
+
 import Elevate from "../Elevate";
+import { CircleButton } from "../Button";
 
 import pickRandom from "../util/pickRandom";
 
@@ -55,22 +60,18 @@ function Pokedex({ pokemonData, species, evolutions }) {
                 <img src={front_default} alt="" />
               </div>
             </MainScreen>
-
-            <div>
-              <p>{pickRandom(flavor_texts).flavor_text}</p>
-            </div>
-            <div>
-              EVOLUTION GRAPH
-              <EvolutionGraph evolutions={evolutions} />
-            </div>
-            <div>
-              ABILITIES
-              <AbilitiesList abilities={abilities} />
+            <div className={styles["main-controls"]}>
+              <CircleButton size={32} color="#1a1a1a" />
+              <MiniScreen>
+                <p>{pickRandom(flavor_texts).flavor_text}</p>
+              </MiniScreen>
+              <DPad />
             </div>
           </div>
         </div>
       </Elevate>
-      <Elevate color="darkred">
+      <Divider />
+      <Elevate color="var(--red-darker)">
         <div className={`${styles["panel"]} ${styles["right"]}`}>
           <div>
             <p>Base Experience: {base_experience}</p>
@@ -82,10 +83,18 @@ function Pokedex({ pokemonData, species, evolutions }) {
             <StatGraph statValues={stats} variation="bar" />
             {/* <StatGraph statValues={stats} variation="hex" /> */}
           </div>
-          <div>
+          {/* <div>
             MOVE LIST
             <MoveList moves={moves} />
+          </div> */}
+          {/* <div>
+            EVOLUTION GRAPH
+            <EvolutionGraph evolutions={evolutions} />
           </div>
+          <div>
+            ABILITIES
+            <AbilitiesList abilities={abilities} />
+          </div> */}
         </div>
       </Elevate>
     </div>

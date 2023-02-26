@@ -5,7 +5,6 @@
   flex-direction: row;
 
   margin-top: 2rem;
-  gap: 16px;
 
   h1 {
     text-transform: uppercase;
@@ -18,7 +17,8 @@
 }
 
 .panel {
-  width: 400px;
+  width: 380px;
+  height: 560px;
   background-color: var(--red);
   display: flex;
   flex-direction: column;
@@ -50,4 +50,12 @@
   border: var(--border);
 
   clip-path: url(#pokedexCutout);
+}
+
+.main-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
 }
