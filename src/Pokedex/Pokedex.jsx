@@ -8,9 +8,10 @@ import MainScreen from "../MainScreen";
 import DPad from "../DPad";
 import MiniScreen from "../MiniScreen";
 import Divider from "../Divider";
+import SecondaryScreen from "../SecondaryScreen";
 
 import Elevate from "../Elevate";
-import { CircleButton } from "../Button";
+import { CircleButton, RectButton } from "../Button";
 
 import pickRandom from "../util/pickRandom";
 
@@ -50,15 +51,7 @@ function Pokedex({ pokemonData, species, evolutions }) {
           </Elevate>
           <div className={styles["content"]}>
             <MainScreen>
-              <h1>
-                {id} {name}
-              </h1>
-              <div>
-                <TypeList types={types} />
-              </div>
-              <div>
-                <img src={front_default} alt="" />
-              </div>
+              <img className={styles["sprite"]} src={front_default} alt="" />
             </MainScreen>
             <div className={styles["main-controls"]}>
               <CircleButton size={32} color="#1a1a1a" />
@@ -73,28 +66,50 @@ function Pokedex({ pokemonData, species, evolutions }) {
       <Divider />
       <Elevate color="var(--red-darker)">
         <div className={`${styles["panel"]} ${styles["right"]}`}>
-          <div>
-            <p>Base Experience: {base_experience}</p>
-            <p>Height: {height}</p>
-            <p>Weight: {weight}</p>
+          <div className={styles["content"]}>
+            <SecondaryScreen>
+              <h1>
+                {id} {name}
+              </h1>
+              <div>
+                <TypeList types={types} />
+              </div>
+              <div>
+                <p>Base Experience: {base_experience}</p>
+                <p>Height: {height}</p>
+                <p>Weight: {weight}</p>
+              </div>
+            </SecondaryScreen>
+            <div className={styles["functions"]}>
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+              <RectButton height={32} width={60} color="var(--blue)" />
+            </div>
+            {/* <div>
+              STATS
+              <StatGraph statValues={stats} variation="bar" />
+              <StatGraph statValues={stats} variation="hex" />
+            </div>
+            <div>
+              MOVE LIST
+              <MoveList moves={moves} />
+            </div>
+            <div>
+              EVOLUTION GRAPH
+              <EvolutionGraph evolutions={evolutions} />
+            </div>
+            <div>
+              ABILITIES
+              <AbilitiesList abilities={abilities} />
+            </div> */}
           </div>
-          <div>
-            STATS
-            <StatGraph statValues={stats} variation="bar" />
-            {/* <StatGraph statValues={stats} variation="hex" /> */}
-          </div>
-          {/* <div>
-            MOVE LIST
-            <MoveList moves={moves} />
-          </div> */}
-          {/* <div>
-            EVOLUTION GRAPH
-            <EvolutionGraph evolutions={evolutions} />
-          </div>
-          <div>
-            ABILITIES
-            <AbilitiesList abilities={abilities} />
-          </div> */}
         </div>
       </Elevate>
     </div>

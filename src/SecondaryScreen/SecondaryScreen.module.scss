@@ -1,0 +1,11 @@
+.wrapper {
+  .screen {
+    padding: 8px;
+    color: white;
+    border: var(--border);
+    background-color: hsl(0deg 0% 14%);
+    height: 150px;
+    width: 300px;
+    text-transform: uppercase;
+  }
+}

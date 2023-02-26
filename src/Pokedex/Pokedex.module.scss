@@ -9,11 +9,11 @@
   h1 {
     text-transform: uppercase;
   }
+}
 
-  img {
-    image-rendering: pixelated;
-    margin: 0 auto;
-  }
+.sprite {
+  image-rendering: pixelated;
+  width: 80%;
 }
 
 .panel {
@@ -32,6 +32,9 @@
   &.right {
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
+
+    align-items: center;
+    padding-top: 100px;
   }
 
   .content {
@@ -43,6 +46,7 @@
 }
 
 .status-bar {
+  align-self: stretch;
   background-color: var(--red);
   height: 100px;
   padding: 12px;
@@ -58,4 +62,9 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
+}
+
+.functions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
