@@ -7,12 +7,12 @@ export default function MiniScreen({ children }) {
     <div className={styles["mini-screen-wrapper"]}>
       <div className={styles["mini-screen-controls"]}>
         <RectButton
-          height={8}
+          height={10}
           width={64}
           variant="rect"
           color="var(--red-light)"
         />
-        <RectButton height={8} width={64} variant="rect" color="var(--blue)" />
+        <RectButton height={10} width={64} variant="rect" color="var(--blue)" />
       </div>
       <div className={styles["mini-screen"]}>{children}</div>
     </div>
