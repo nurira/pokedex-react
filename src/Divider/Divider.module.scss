@@ -8,14 +8,14 @@
 
 .bar {
   position: absolute;
-  top: -22px;
+  top: -26px;
   width: 48px;
   background-color: var(--red);
   border: var(--border);
-  height: calc(100% + 12px);
+  height: calc(100% + 16px);
 
-  border-top-right-radius: 32px 8px;
-  border-top-left-radius: 32px 8px;
+  border-top-right-radius: 32px 16px;
+  border-top-left-radius: 32px 16px;
 }
 
 .circle {

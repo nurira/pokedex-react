@@ -8,3 +8,7 @@
 
   --blue: hsl(217, 100%, 52%);
 }
+
+body {
+  background: #94bbe9;
+}
