@@ -1,18 +1,22 @@
 import Elevate from "../Elevate";
-import Button from "../Button";
+import { CircleButton } from "../Button";
 
 import useToggle from "../hooks/useToggle";
 
 import styles from "./MainScreen.module.scss";
 
 export default function MainScreen({ children }) {
-  const [screenIsOn, toggleScreen] = useToggle(false);
+  const [screenIsOn, toggleScreen] = useToggle(true);
 
   return (
     <Elevate color="white">
       <div className={styles["wrapper"]}>
         <div className={styles["left-buttons"]}>
-          <Button size={24} color="var(--red-dark)" onClick={toggleScreen} />
+          <CircleButton
+            size={28}
+            color="var(--red-dark)"
+            onClick={toggleScreen}
+          />
         </div>
 
         <div
@@ -30,8 +34,8 @@ export default function MainScreen({ children }) {
           <div className={styles["slot"]}></div>
         </div>
         <div className={styles["top-buttons"]}>
-          <Button size={8} color="var(--red-dark)" />
-          <Button size={8} color="var(--red-dark)" />
+          <CircleButton size={12} color="var(--red-dark)" />
+          <CircleButton size={12} color="var(--red-dark)" />
         </div>
       </div>
     </Elevate>
