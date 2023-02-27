@@ -26,12 +26,10 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
   pokemonData?.stats.forEach(
     (stat) => (stats[stat.stat.name] = stat.base_stat)
   );
-  console.log("STATS", stats);
 
   const flavor_texts = species?.flavor_text_entries.filter(
     (ft) => ft.language.name === "en"
   );
-  console.log("EN FLAVOR TEXTS", flavor_texts);
 
   const types = pokemonData?.types.map((type) => type.type.name);
 

@@ -3,7 +3,7 @@ import styles from "./EvolutionGraph.module.scss";
 export default function EvolutionGraph({ evolutions }) {
   const root = evolutions.chain;
 
-  console.log("EVOLUTIONS", evolutions);
+  // console.log("EVOLUTIONS", evolutions);
   return <EvolutionNode node={root} />;
 }
 

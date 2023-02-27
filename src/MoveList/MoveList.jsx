@@ -1,7 +1,7 @@
 import styles from "./MoveList.module.scss";
 
 export default function MoveList({ moves }) {
-  console.log("MOVES", moves);
+  // console.log("MOVES", moves);
 
   return (
     <ul className={styles["move-list"]}>

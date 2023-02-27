@@ -1,7 +1,8 @@
 import styles from "./AbilitiesList.module.scss";
 
 export default function AbilitiesList({ abilities }) {
-  console.log("ABILITIES", abilities);
+  // console.log("ABILITIES", abilities);
+
   return (
     <ul className={styles["abilities-list"]}>
       {abilities.map(({ ability }) => (

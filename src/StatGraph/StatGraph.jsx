@@ -36,7 +36,7 @@ export default function StatGraph({ statValues, variation = "bar" }) {
   ];
 
   stats.forEach((stat) => (stat.value = statValues[stat.key]));
-  console.log("STATS", stats);
+  // console.log("STATS", stats);
 
   const Graph = variation === "bar" ? BarGraph : HexGraph;
   return <Graph stats={stats} />;
