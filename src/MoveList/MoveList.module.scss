@@ -1,9 +1,16 @@
-.wrapper {
-  height: 120px;
+.move-list {
+  margin-top: 8px;
+  height: 100px;
   overflow: auto;
-  border: 1px solid black;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 
-  ul {
-    list-style-type: none;
+  li {
+    border: 1px solid white;
+    border-radius: 8px;
+    text-align: center;
+    padding-block: 2px;
   }
 }

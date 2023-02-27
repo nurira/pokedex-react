@@ -1,5 +1,23 @@
-.wrapper {
-  ul {
-    list-style-type: none;
+.abilities-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 3px;
+  overflow: auto;
+  margin-top: 6px;
+
+  li {
+    font-size: 1.6rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    padding-block: 2px;
   }
+}
+
+.hidden-ability {
+  border-color: red;
 }

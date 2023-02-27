@@ -82,9 +82,11 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
                       </h1>
                       <TypeList types={types} />
                       <div className={styles["information"]}>
-                        <p>Base Experience: {pokemonData.base_experience}</p>
-                        <p>Height: {pokemonData.height}</p>
-                        <p>Weight: {pokemonData.weight}</p>
+                        <p>
+                          Base Experience: {pokemonData.base_experience} EXP
+                        </p>
+                        <p>Height: {pokemonData.height / 10} m</p>
+                        <p>Weight: {pokemonData.weight / 10} kg</p>
                       </div>
                     </div>
                   )}
@@ -102,16 +104,16 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
                     </>
                   )}
                   {activeFunction === 3 && (
-                    <div>
-                      EVOLUTION GRAPH
+                    <>
+                      <h1>EVOLUTION GRAPH</h1>
                       <EvolutionGraph evolutions={evolutions} />
-                    </div>
+                    </>
                   )}
                   {activeFunction === 4 && (
-                    <div>
-                      ABILITIES
+                    <>
+                      <h1>ABILITIES</h1>
                       <AbilitiesList abilities={pokemonData.abilities} />
-                    </div>
+                    </>
                   )}
                 </>
               )}
@@ -128,12 +130,14 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
                   <RectButton height={12} width={56} color="hsl(0deg 0% 14%)" />
                 </div>
               </div>
-              <Light
-                color="yellow"
-                bezelSize="8px"
-                bezelColor="white"
-                size="32px"
-              />
+              <div className={styles["mini-light-row"]}>
+                <Light
+                  color="yellow"
+                  bezelSize="8px"
+                  bezelColor="white"
+                  size="32px"
+                />
+              </div>
               <div className={styles["row"]}>
                 <div className={styles["aux-screen"]} />
                 <div className={styles["aux-screen"]} />
