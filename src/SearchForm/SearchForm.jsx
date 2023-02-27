@@ -3,7 +3,7 @@ import styles from "./SearchForm.module.scss";
 export default function SearchForm({ handleSubmit, ...delegated }) {
   return (
     <form className={styles["wrapper"]} onSubmit={handleSubmit}>
-      <input type="text" {...delegated} />
+      <input type="text" placeholder="pikachu" {...delegated} />
     </form>
   );
 }

@@ -28,4 +28,5 @@ svg {
 
 #root {
   isolation: isolate;
+  height: 100%;
 }
