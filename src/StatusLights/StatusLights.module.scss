@@ -32,5 +32,6 @@
     width: calc(var(--size) - var(--bezel-size));
     background-color: var(--color);
     border-radius: 50%;
+    filter: brightness(var(--brightness));
   }
 }

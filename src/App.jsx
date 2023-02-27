@@ -40,14 +40,12 @@ function App() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      {status === "success" && (
-        <Pokedex
-          pokemonData={pokeData}
-          species={speciesData}
-          evolutions={evolutionData}
-        />
-      )}
-      {status === "error" && <div>Error fetching data.</div>}
+      <Pokedex
+        pokemonData={pokeData}
+        species={speciesData}
+        evolutions={evolutionData}
+        status={status}
+      />
     </div>
   );
 }

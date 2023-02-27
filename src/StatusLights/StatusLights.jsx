@@ -5,6 +5,7 @@ function Light({
   color = "black",
   bezelSize = "8px",
   bezelColor = "white",
+  active,
 }) {
   return (
     <div
@@ -14,18 +15,19 @@ function Light({
         "--size": size,
         "--bezelSize": bezelSize,
         "--bezelColor": bezelColor,
+        "--brightness": active ? "1.5" : "0.8",
       }}
     />
   );
 }
 
-export default function StatusLights() {
+export default function StatusLights({ status }) {
   return (
     <div className={styles["wrapper"]}>
-      <Light size="72px" color="lightblue" />
-      <Light size="36px" color="red" />
-      <Light size="36px" color="yellow" />
-      <Light size="36px" color="green" />
+      <Light size="72px" color="cyan" active={status === "idle"} />
+      <Light size="36px" color="red" active={status === "error"} />
+      <Light size="36px" color="yellow" active={status === "loading"} />
+      <Light size="36px" color="green" active={status === "success"} />
     </div>
   );
 }

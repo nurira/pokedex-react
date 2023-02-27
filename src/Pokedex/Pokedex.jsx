@@ -17,28 +17,19 @@ import pickRandom from "../util/pickRandom";
 
 import styles from "./Pokedex.module.scss";
 
-function Pokedex({ pokemonData, species, evolutions }) {
-  const {
-    id,
-    name,
-    height,
-    weight,
-    base_experience,
-    sprites: { front_default },
-    moves,
-    abilities,
-  } = pokemonData;
-
+function Pokedex({ pokemonData, species, evolutions, status }) {
   const stats = {};
-  pokemonData.stats.forEach((stat) => (stats[stat.stat.name] = stat.base_stat));
+  pokemonData?.stats.forEach(
+    (stat) => (stats[stat.stat.name] = stat.base_stat)
+  );
   console.log("STATS", stats);
 
-  const flavor_texts = species.flavor_text_entries.filter(
+  const flavor_texts = species?.flavor_text_entries.filter(
     (ft) => ft.language.name === "en"
   );
   console.log("EN FLAVOR TEXTS", flavor_texts);
 
-  const types = pokemonData.types.map((type) => type.type.name);
+  const types = pokemonData?.types.map((type) => type.type.name);
 
   return (
     <div className={styles["wrapper"]}>
@@ -46,17 +37,26 @@ function Pokedex({ pokemonData, species, evolutions }) {
         <div className={`${styles["panel"]} ${styles["left"]}`}>
           <Elevate color="var(--red-darker)">
             <div className={styles["status-bar"]}>
-              <StatusLights />
+              <StatusLights status={status} />
             </div>
           </Elevate>
           <div className={styles["content"]}>
             <MainScreen>
-              <img className={styles["sprite"]} src={front_default} alt="" />
+              {status === "success" && (
+                <img
+                  className={styles["sprite"]}
+                  src={pokemonData.sprites.front_default}
+                  alt=""
+                />
+              )}
+              {status === "error" && <p>Error fetching data.</p>}
             </MainScreen>
             <div className={styles["main-controls"]}>
               <CircleButton size={32} color="#1a1a1a" />
               <MiniScreen>
-                <p>{pickRandom(flavor_texts).flavor_text}</p>
+                {status === "success" && (
+                  <p>{pickRandom(flavor_texts).flavor_text}</p>
+                )}
               </MiniScreen>
               <DPad />
             </div>
@@ -69,17 +69,21 @@ function Pokedex({ pokemonData, species, evolutions }) {
         <div className={`${styles["panel"]} ${styles["right"]}`}>
           <div className={styles["content"]}>
             <SecondaryScreen>
-              <h1>
-                {id} {name}
-              </h1>
-              <div>
-                <TypeList types={types} />
-              </div>
-              <div>
-                <p>Base Experience: {base_experience}</p>
-                <p>Height: {height}</p>
-                <p>Weight: {weight}</p>
-              </div>
+              {status === "success" && (
+                <>
+                  <h1>
+                    {pokemonData.id} {pokemonData.name}
+                  </h1>
+                  <div>
+                    <TypeList types={types} />
+                  </div>
+                  <div>
+                    <p>Base Experience: {pokemonData.base_experience}</p>
+                    <p>Height: {pokemonData.height}</p>
+                    <p>Weight: {pokemonData.weight}</p>
+                  </div>
+                </>
+              )}
             </SecondaryScreen>
             <div className={styles["functions"]}>
               <RectButton height={32} width={60} color="var(--blue)" />
@@ -93,6 +97,10 @@ function Pokedex({ pokemonData, species, evolutions }) {
               <RectButton height={32} width={60} color="var(--blue)" />
               <RectButton height={32} width={60} color="var(--blue)" />
             </div>
+            <div className={styles["secondary-controls"]}>
+              <RectButton height={32} width={48} color="white" />
+              <RectButton height={32} width={48} color="white" />
+            </div>
             {/* <div>
               STATS
               <StatGraph statValues={stats} variation="bar" />
@@ -100,15 +108,15 @@ function Pokedex({ pokemonData, species, evolutions }) {
             </div>
             <div>
               MOVE LIST
-              <MoveList moves={moves} />
+              <MoveList moves={pokemonData.moves} />
             </div>
             <div>
               EVOLUTION GRAPH
-              <EvolutionGraph evolutions={evolutions} />
+              <EvolutionGraph evolutions={pokemonData.evolutions} />
             </div>
             <div>
               ABILITIES
-              <AbilitiesList abilities={abilities} />
+              <AbilitiesList abilities={pokemonData.abilities} />
             </div> */}
           </div>
         </div>
