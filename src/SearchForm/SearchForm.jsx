@@ -8,7 +8,7 @@ export default function SearchForm({ handleSubmit, ...delegated }) {
 
   return (
     <form className={styles["wrapper"]} onSubmit={handleSubmit}>
-      <input type="text" placeholder="pikachu" ref={searchRef} {...delegated} />
+      <input type="text" ref={searchRef} {...delegated} />
     </form>
   );
 }

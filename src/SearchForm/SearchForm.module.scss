@@ -9,9 +9,5 @@
     font-family: monospace;
     border-radius: 8px;
     border: var(--border);
-
-    &::placeholder {
-      color: hsl(0deg 0% 0% / 0.7);
-    }
   }
 }
