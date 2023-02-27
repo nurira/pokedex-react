@@ -65,7 +65,6 @@
 
   border-bottom: none;
   clip-path: url(#pokedexCutout);
-  // clip-path: polygon(0 0, 100% 0, 100% 50%, 70% 50%, 30% 100%, 0 100%);
 }
 
 .main-controls {
@@ -76,18 +75,29 @@
   margin-top: 16px;
 }
 
+.secondary-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.aux-screen {
+  width: 128px;
+  height: 48px;
+  border: var(--border);
+  border-radius: 8px;
+  background-color: hsl(0deg 0% 15%);
+}
+
 // FUNCTION STYLES
 .basic-information {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
-  flex .heading {
-    h1 {
-      font-size: 1.4rem;
-    }
-  }
-
-  .information {
-  }
 }

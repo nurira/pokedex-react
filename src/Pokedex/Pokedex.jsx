@@ -1,4 +1,4 @@
-import StatusLights from "../StatusLights";
+import StatusLights, { Light } from "../StatusLights";
 import StatGraph from "../StatGraph";
 import EvolutionGraph from "../EvolutionGraph";
 import MoveList from "../MoveList";
@@ -20,6 +20,7 @@ import styles from "./Pokedex.module.scss";
 
 function Pokedex({ pokemonData, species, evolutions, status }) {
   const [activeFunction, setActiveFunction] = React.useState(0);
+  const [activeFlavorText, setActiveFlavorText] = React.useState(0);
 
   const stats = {};
   pokemonData?.stats.forEach(
@@ -57,7 +58,9 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
             <div className={styles["main-controls"]}>
               <CircleButton size={32} color="#1a1a1a" />
               <MiniScreen>
-                {status === "success" && <p>{flavor_texts[0].flavor_text}</p>}
+                {status === "success" && (
+                  <p>{flavor_texts[activeFlavorText].flavor_text}</p>
+                )}
               </MiniScreen>
               <DPad />
             </div>
@@ -74,12 +77,10 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
                 <>
                   {activeFunction === 0 && (
                     <div className={styles["basic-information"]}>
-                      <div className={styles["heading"]}>
-                        <h1>
-                          {pokemonData.id} {pokemonData.name}
-                        </h1>
-                        <TypeList types={types} />
-                      </div>
+                      <h1>
+                        {pokemonData.id} {pokemonData.name}
+                      </h1>
+                      <TypeList types={types} />
                       <div className={styles["information"]}>
                         <p>Base Experience: {pokemonData.base_experience}</p>
                         <p>Height: {pokemonData.height}</p>
@@ -88,17 +89,17 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
                     </div>
                   )}
                   {activeFunction === 1 && (
-                    <div>
-                      STATS
+                    <>
+                      <h1>STATS</h1>
                       <StatGraph statValues={stats} variation="bar" />
-                      <StatGraph statValues={stats} variation="hex" />
-                    </div>
+                      {/* <StatGraph statValues={stats} variation="hex" /> */}
+                    </>
                   )}
                   {activeFunction === 2 && (
-                    <div>
-                      MOVE LIST
+                    <>
+                      <h1>MOVE LIST</h1>
                       <MoveList moves={pokemonData.moves} />
-                    </div>
+                    </>
                   )}
                   {activeFunction === 3 && (
                     <div>
@@ -117,8 +118,26 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
             </SecondaryScreen>
             <FunctionButtons onClick={setActiveFunction} />
             <div className={styles["secondary-controls"]}>
-              <RectButton height={32} width={48} color="white" />
-              <RectButton height={32} width={48} color="white" />
+              <div className={styles["row"]}>
+                <div>
+                  <RectButton height={32} width={64} color="white" />
+                  <RectButton height={32} width={64} color="white" />
+                </div>
+                <div>
+                  <RectButton height={12} width={56} color="hsl(0deg 0% 14%)" />
+                  <RectButton height={12} width={56} color="hsl(0deg 0% 14%)" />
+                </div>
+              </div>
+              <Light
+                color="yellow"
+                bezelSize="8px"
+                bezelColor="white"
+                size="32px"
+              />
+              <div className={styles["row"]}>
+                <div className={styles["aux-screen"]} />
+                <div className={styles["aux-screen"]} />
+              </div>
             </div>
           </div>
         </div>

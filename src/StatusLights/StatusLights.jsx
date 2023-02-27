@@ -1,9 +1,9 @@
 import styles from "./StatusLights.module.scss";
 
-function Light({
+export function Light({
   size = "24px",
   color = "black",
-  bezelSize = "8px",
+  bezelSize = "10px",
   bezelColor = "white",
   active,
 }) {
@@ -13,8 +13,8 @@ function Light({
       style={{
         "--color": color,
         "--size": size,
-        "--bezelSize": bezelSize,
-        "--bezelColor": bezelColor,
+        "--bezel-size": bezelSize,
+        "--bezel-color": bezelColor,
         "--brightness": active ? "1.5" : "0.8",
       }}
     />
