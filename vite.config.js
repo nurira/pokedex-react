@@ -8,5 +8,4 @@ export default defineConfig({
       jsxRuntime: "classic",
     }),
   ],
-  build: { outDir: "./build" },
 });
