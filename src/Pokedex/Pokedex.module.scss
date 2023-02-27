@@ -76,7 +76,18 @@
   margin-top: 16px;
 }
 
-.functions {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+// FUNCTION STYLES
+.basic-information {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  flex .heading {
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+
+  .information {
+  }
 }

@@ -1,0 +1,12 @@
+.functions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  .function {
+    cursor: pointer;
+
+    &:hover {
+      background-color: lightskyblue;
+    }
+  }
+}

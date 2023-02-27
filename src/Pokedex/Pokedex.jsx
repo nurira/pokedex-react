@@ -9,6 +9,7 @@ import DPad from "../DPad";
 import MiniScreen from "../MiniScreen";
 import Divider from "../Divider";
 import SecondaryScreen from "../SecondaryScreen";
+import FunctionButtons from "../FunctionButtons";
 
 import Elevate from "../Elevate";
 import { CircleButton, RectButton } from "../Button";
@@ -18,6 +19,8 @@ import pickRandom from "../util/pickRandom";
 import styles from "./Pokedex.module.scss";
 
 function Pokedex({ pokemonData, species, evolutions, status }) {
+  const [activeFunction, setActiveFunction] = React.useState(0);
+
   const stats = {};
   pokemonData?.stats.forEach(
     (stat) => (stats[stat.stat.name] = stat.base_stat)
@@ -54,9 +57,7 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
             <div className={styles["main-controls"]}>
               <CircleButton size={32} color="#1a1a1a" />
               <MiniScreen>
-                {status === "success" && (
-                  <p>{pickRandom(flavor_texts).flavor_text}</p>
-                )}
+                {status === "success" && <p>{flavor_texts[0].flavor_text}</p>}
               </MiniScreen>
               <DPad />
             </div>
@@ -71,53 +72,54 @@ function Pokedex({ pokemonData, species, evolutions, status }) {
             <SecondaryScreen>
               {status === "success" && (
                 <>
-                  <h1>
-                    {pokemonData.id} {pokemonData.name}
-                  </h1>
-                  <div>
-                    <TypeList types={types} />
-                  </div>
-                  <div>
-                    <p>Base Experience: {pokemonData.base_experience}</p>
-                    <p>Height: {pokemonData.height}</p>
-                    <p>Weight: {pokemonData.weight}</p>
-                  </div>
+                  {activeFunction === 0 && (
+                    <div className={styles["basic-information"]}>
+                      <div className={styles["heading"]}>
+                        <h1>
+                          {pokemonData.id} {pokemonData.name}
+                        </h1>
+                        <TypeList types={types} />
+                      </div>
+                      <div className={styles["information"]}>
+                        <p>Base Experience: {pokemonData.base_experience}</p>
+                        <p>Height: {pokemonData.height}</p>
+                        <p>Weight: {pokemonData.weight}</p>
+                      </div>
+                    </div>
+                  )}
+                  {activeFunction === 1 && (
+                    <div>
+                      STATS
+                      <StatGraph statValues={stats} variation="bar" />
+                      <StatGraph statValues={stats} variation="hex" />
+                    </div>
+                  )}
+                  {activeFunction === 2 && (
+                    <div>
+                      MOVE LIST
+                      <MoveList moves={pokemonData.moves} />
+                    </div>
+                  )}
+                  {activeFunction === 3 && (
+                    <div>
+                      EVOLUTION GRAPH
+                      <EvolutionGraph evolutions={evolutions} />
+                    </div>
+                  )}
+                  {activeFunction === 4 && (
+                    <div>
+                      ABILITIES
+                      <AbilitiesList abilities={pokemonData.abilities} />
+                    </div>
+                  )}
                 </>
               )}
             </SecondaryScreen>
-            <div className={styles["functions"]}>
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-              <RectButton height={32} width={60} color="var(--blue)" />
-            </div>
+            <FunctionButtons onClick={setActiveFunction} />
             <div className={styles["secondary-controls"]}>
               <RectButton height={32} width={48} color="white" />
               <RectButton height={32} width={48} color="white" />
             </div>
-            {/* <div>
-              STATS
-              <StatGraph statValues={stats} variation="bar" />
-              <StatGraph statValues={stats} variation="hex" />
-            </div>
-            <div>
-              MOVE LIST
-              <MoveList moves={pokemonData.moves} />
-            </div>
-            <div>
-              EVOLUTION GRAPH
-              <EvolutionGraph evolutions={pokemonData.evolutions} />
-            </div>
-            <div>
-              ABILITIES
-              <AbilitiesList abilities={pokemonData.abilities} />
-            </div> */}
           </div>
         </div>
       </Elevate>
