@@ -1,37 +1,44 @@
+@keyframes growFromLeft {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 1, 0 1);
+  }
+
+  to {
+    clip-path: polygon(0 0, 1 0, 1 1, 0 1);
+  }
+}
+
 .bar-graph {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 0 24px;
-  width: 300px;
-  font-family: monospace;
-  font-size: 1rem;
+  margin-top: 4px;
 }
 
 .bar {
-  --bar-color: orangered;
-  --bar-height: 2rem;
-  --bar-width: 0px;
+  --bar-height: 16px;
   height: var(--bar-height);
-  width: var(--bar-width);
+  width: calc(var(--bar-length) * 180);
   background-color: var(--bar-color);
 
   border: 1px solid black;
   position: relative;
+
+  animation: growFromLeft 2s both;
 }
 
-.label {
-  line-height: 1;
-  position: absolute;
-  left: 0;
-  top: 0;
+.stat {
+  display: flex;
+  align-items: center;
+
+  .label {
+    width: 60px;
+    text-align: right;
+    margin-right: 6px;
+  }
 }
 
 .value {
-  position: absolute;
-  transform: translate(100%, 50%);
-  right: 0;
-  top: 0;
+  margin-left: 6px;
 }
 
 .hex-graph {

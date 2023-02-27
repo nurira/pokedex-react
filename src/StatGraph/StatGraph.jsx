@@ -4,11 +4,12 @@ function BarGraph({ stats }) {
   return (
     <div className={styles["bar-graph"]}>
       {stats.map(({ label, value, color }) => (
-        <div
-          className={styles["bar"]}
-          style={{ "--bar-width": `${value}px`, "--bar-color": color }}
-        >
+        <div className={styles["stat"]}>
           <span className={styles["label"]}>{label}</span>
+          <div
+            className={styles["bar"]}
+            style={{ "--bar-length": `${value / 255}px`, "--bar-color": color }}
+          ></div>
           <span className={styles["value"]}>{value}</span>
         </div>
       ))}

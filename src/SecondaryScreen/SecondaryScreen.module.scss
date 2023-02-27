@@ -1,13 +1,18 @@
 .wrapper {
   .screen {
-    padding: 8px;
+    padding: 12px;
     color: white;
     border: var(--border);
     background-color: hsl(0deg 0% 14%);
-    height: 150px;
+    height: 170px;
     width: 300px;
     text-transform: uppercase;
     border-radius: 8px;
     overflow: auto;
+
+    h1 {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
   }
 }
