@@ -35,6 +35,8 @@
 
     align-items: center;
     padding-top: 100px;
+
+    clip-path: url(#panelCutout);
   }
 
   .content {
@@ -45,6 +47,16 @@
   }
 }
 
+.right-panel-border-top {
+  width: 380px;
+  height: 560px;
+  background-color: black;
+  clip-path: url(#panelCutout);
+  top: -2px;
+  position: absolute;
+  border-bottom-right-radius: 16px;
+}
+
 .status-bar {
   align-self: stretch;
   background-color: var(--red);
@@ -53,7 +65,9 @@
   border-top-left-radius: 1rem;
   border: var(--border);
 
+  border-bottom: none;
   clip-path: url(#pokedexCutout);
+  // clip-path: polygon(0 0, 100% 0, 100% 50%, 70% 50%, 30% 100%, 0 100%);
 }
 
 .main-controls {

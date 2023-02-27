@@ -65,6 +65,7 @@ function Pokedex({ pokemonData, species, evolutions }) {
       </Elevate>
       <Divider />
       <Elevate color="var(--red-darker)">
+        <div className={styles["right-panel-border-top"]} />
         <div className={`${styles["panel"]} ${styles["right"]}`}>
           <div className={styles["content"]}>
             <SecondaryScreen>
